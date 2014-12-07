@@ -1,6 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.nathaliamaro.honeywords" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-	<preference name="orientation" value="landscape" />
+<preference name="orientation" value="landscape" />
+<platform name="ios">
+    <!-- images are determined by width and height. The following are supported -->
+    <splash src="www/img/bkg.jpg" width="1024" height="768"/><!-- ipad -->
+    <splash src="www/img/bkg.jpg" width="2048" height="1536"/><!-- ipad@2x -->
+    <icon src="www/img/icon.png" width="76" height="76"/>
+    <icon src="www/img/icon@2x.png" width="152" height="152" />
+</platform>
     <name>HoneyWords</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

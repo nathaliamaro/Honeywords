@@ -5,11 +5,14 @@ var mediaFileFullName = null;
 var mediaRecFile = "myRecording100.wav";
 var checkFileOnly = false;
 var mediaFileExist = false;
-
+var currentPage = "page1";
 
 
 function stopRecording() {
     my_recorder.stopRecord(); // the file should be moved to "/sdcard/"+mediaRecFile
+    // $('.'+currentPage+' .record').toggleClass('recording');
+    $('.'+currentPage+' .record').show();
+    $('.'+currentPage+' .stop').hide().toggleClass('recording');
 
     clearProgressTimmer();
     console.log("***test: recording stopped***");
@@ -37,7 +40,7 @@ function recordNow() {
     // Stop recording after 10 sec
     progressTimmer = setInterval(function() {
         recTime = recTime + 1;
-        if (recTime >= 10)
+        if (recTime >= 25)
             stopRecording();
         console.log("***test: interval-func()***");
     }, 1000);
@@ -73,6 +76,11 @@ function onSuccessFileSystem(fileSystem) {
 
 function startRecording(page) {
     // create media object - overwrite existing recording
+    // console.log(this);
+    currentPage = page;
+    $('.'+page+' .record').hide();
+    $('.'+page+' .stop').show().toggleClass('recording');
+
 	mediaRecFile = page + ".wav";  	
     if (my_recorder){
         my_recorder.release();
@@ -91,12 +99,38 @@ function startRecording(page) {
 // Play audio        
 //
 function playMusic(currentRecording) {
-	mediaRecFile = currentRecording + ".wav";
-	my_player = new Media(mediaRecFile, onMediaCallSuccess, onMediaCallError);
-    
-    // Play audio
+    //not being able to click more than once
+    //we want to know if it is running
+    //current position will let us know if its being played 
+    //Because if its running is more than 0 and less than get Duration
+    mediaRecFile = currentRecording + ".wav";
+    if(my_player){
+        my_player.getCurrentPosition(function(position){
+            if( position > 0  && position < my_player.getDuration()){
+                console.log('dont do anything... right?');
+            } else {
+                my_player = new Media(mediaRecFile, onMediaCallSuccess, onMediaCallError);
+                // Play audio
+                if (my_player) {
+                    my_player.play();
+                }
+           }
+        });
+    } else {
+        my_player = new Media(mediaRecFile, onMediaCallSuccess, onMediaCallError);
+        // Play audio
+        if (my_player) {
+            my_player.play();
+        }
+    }
+}
+
+// Stop audio        
+//
+function stopMusic(currentRecording) {
+    // stop audio
     if (my_player) {
-        my_player.play();
+        my_player.stop();
     }
 }
 

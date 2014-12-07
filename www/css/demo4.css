@@ -59,9 +59,16 @@
 	padding: 0 0 0.6em 0.1em;
 }
 
+.bb-custom-firstpage img{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width:100%;
+	
+}
+
 .bb-custom-firstpage {
 	text-align: center;
-	padding-top: 15%;
 	width: 50%;
 	float: left;
 	height: 100%;

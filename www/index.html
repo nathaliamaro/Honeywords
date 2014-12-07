@@ -24,8 +24,8 @@
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/bookblock.css" />
         <link rel="stylesheet" type="text/css" href="css/default.css" />
-        <link rel="stylesheet" type="text/css" href="css/bookblock.css">
         <link rel="stylesheet" type="text/css" href="css/demo4.css" />
         <title>Hello World</title>
     </head>
@@ -34,78 +34,107 @@
             <div class="bb-custom-wrapper">
                 
                 <div id="bb-bookblock" class="bb-bookblock">
-                    <div class="bb-item">
+
+                    <div class="bb-item page0">
                         <div class="bb-custom-firstpage">
-                            <h1>BookBlock <span>A Content Flip Plugin</span></h1>   
-                            <nav class="codrops-demos">
-                                <a href="index.html">Demo 1</a>
-                                <a href="index2.html">Demo 2</a>
-                                <a href="index3.html">Demo 3</a>
-                                <a class="current-demo" href="index4.html">Demo 4</a>
-                                <a href="index5.html">Demo 5</a>
-                            </nav>
-                            <nav class="codrops-nav">
-                                <a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/codrops/2012/08/29/multiple-area-charts-with-d3-js/"><span>Previous Demo</span></a>
-                                <a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/2012/09/03/bookblock-a-content-flip-plugin/"><span>Back to the Codrops Article</span></a>
-                            </nav>
+                            <img src="img/0.jpg"/>
                         </div>
                         <div class="bb-custom-side">
-                            <p>Pastry bear claw oat cake danish croissant jujubes danish. Wypas soufflé muffin. Liquorice powder pastry danish. Candy toffee gummi bears chocolate bar lollipop applicake chocolate cake danish brownie.</p>
-                            <button onclick="startRecording('page1')">Record</button>
-                            <button onclick="playMusic('page1')">Play</button>
+                        </div>
+                    </div>
+                    <div class="bb-item page1">
+                        <div class="bb-custom-firstpage">
+                            <img src="img/1.jpg"/>
+                            <p>There once was a girl named Avila. She loved to eat fruit, especially berries.<br/><br/>
+                            Every morning Avila would have berries for breakfast and spend time looking out the window. This morning was special, Avila had a visitor. A bee named Bonnie. <br/>
+                            Avila wondered "what do bees do all day?".</p>
 
+                        </div>
+                        <div class="bb-custom-side">
+                            <button onclick="startRecording('page1')" class="record">Record</button>
+                            <button onclick="stopRecording()" class="stop">Stop recording</button>
+                            <button onclick="playMusic('page1')" class="play">Play</button>
                         </div>
 
                     </div>
-                    <div class="bb-item">
-                        <div class="bb-custom-side">
-                            <p>Soufflé tootsie roll jelly beans. Sweet icing croissant dessert bear claw. Brownie dessert cheesecake danish jelly pudding bear claw soufflé.</p>
-
+                    <div class="bb-item page2">
+                        <div class="bb-custom-firstpage">
+                            <img src="img/2.jpg" width="200%"/>
+                            <p>Few weeks later, Avila looked through her window, surprised, a beautiful berry tree had blossomed. Avila thought to herself "How did that plain old tree grow all those berries?"</p>
                         </div>
                         <div class="bb-custom-side">
-                            <p>Candy canes lollipop macaroon marshmallow gummi bears tiramisu. Dessert croissant cupcake candy canes. Bear claw faworki faworki lemon drops. Faworki marzipan sugar plum jelly-o marzipan jelly-o.</p>
-                            <button onclick="startRecording('page2')">Record</button>
-                            <button onclick="playMusic('page2')">Replay</button>
-
-                        </div>
-                    </div>
-                    <div class="bb-item">
-                        <div class="bb-custom-side">
-                            <p>Croissant pudding gingerbread gummi bears marshmallow halvah. Wafer donut croissant. Cookie muffin jelly beans pie croissant croissant candy canes jelly marshmallow.</p>
-                        </div>
-                        <div class="bb-custom-side">
-                            <p>Wafer donut caramels chocolate caramels sweet roll. Gummi bears powder candy chocolate cake gummi bears icing wafer cupcake. Brownie cotton candy pastry chocolate wypas.</p>
-                            <button onclick="startRecording('page3')">Record</button>
-                            <button onclick="playMusic('page3')">Replay</button>
+                            <button onclick="startRecording('page2')" class="record">Record</button>
+                            <button onclick="stopRecording()" class="stop">Stop recording</button>
+                            <button onclick="playMusic('page2')" class="play">Replay</button>
 
                         </div>
                     </div>
-                    <div class="bb-item">
-                        <div class="bb-custom-side">
-                            <p>Marzipan dragée candy canes chocolate cake. Soufflé faworki jelly gingerbread cupcake. Powder gummies applicake.</p>
+                    <div class="bb-item page3">
+                        <div class="bb-custom-firstpage">
+                            <img src="img/3.jpg" width="200%"/>
+                            <p>The next time she saw Bonnie the bee, she asked her the same question and Bonnie answered: "My sisters and I pollinated that tree for you, we know you love berries!".</p>
                         </div>
                         <div class="bb-custom-side">
-                            <p>Cotton candy caramels tootsie roll soufflé powder lemon drops carrot cake danish. Cotton candy candy canes fruitcake muffin gingerbread. Jujubes soufflé gingerbread donut donut.</p>
-                            <button onclick="startRecording('page4')">Record</button>
-                            <button onclick="playMusic('page4')">Replay</button>
+                            
+                            <button onclick="startRecording('page3')" class="record">Record</button>
+                            <button onclick="stopRecording()" class="stop">Stop recording</button>
+                            <button onclick="playMusic('page3')" class="play">Replay</button>
 
                         </div>
                     </div>
-                    <div class="bb-item">
-                        <div class="bb-custom-side">
-                            <p>Jujubes fruitcake tiramisu liquorice chocolate cake. Carrot cake faworki donut soufflé oat cake tootsie roll. Fruitcake fruitcake cake sweet pie jelly beans. Chocolate cake candy jujubes oat cake toffee croissant muffin.</p>
+                    <div class="bb-item page4">
+                        <div class="bb-custom-firstpage">
+                            <img src="img/4.jpg" width="200%"/>
+                            <p>Days later, Avila was looking through her window and saw her friend Bonnie woozy and about to fall. She asked her what was wrong. Bonnie told her what happened...</p>
                         </div>
                         <div class="bb-custom-side">
-                            <p>Chocolate bar tiramisu marzipan. Croissant soufflé croissant lollipop liquorice dragée chupa chups carrot cake. Liquorice lollipop halvah toffee lollipop.</p>
-                            <button onclick="startRecording('page5')">Record</button>
-                            <button onclick="playMusic('page5')">Replay</button>
+                            
+                            <button onclick="startRecording('page4')" class="record">Record</button>
+                            <button onclick="stopRecording()" class="stop">Stop recording</button>
+                            <button onclick="playMusic('page4')" class="play">Replay</button>
+
+                        </div>
+                    </div>
+                    <div class="bb-item page5" >
+                        <div class="bb-custom-firstpage">
+                            <img src="img/5.jpg" width="200%"/>
+                            <p>"An evil plane sprayed a nasty liquid all over the fields, it got us dizzy and me and my sisters are now lost. We don't know how to get back to the hive",</p>
+                        </div>
+                        <div class="bb-custom-side">
+                            <button onclick="startRecording('page5')" class="record">Record</button>
+                            <button onclick="stopRecording()" class="stop">Stop recording</button>
+                            <button onclick="playMusic('page5')" class="play">Replay</button>
+
+                        </div>
+                    </div>
+
+                    <div class="bb-item page6">
+                        <div class="bb-custom-firstpage">
+                            <img src="img/6.jpg" width="200%"/>
+                            <p>Avila rushed out to the garden and helped Bonnie and her sisters get back to the hive. After that, Avila convinced her parents to help her set up a bee yard where she would protect Bonnie and her family.</p>
+                        </div>
+                        <div class="bb-custom-side">
+                            
+                            <button onclick="startRecording('page6')" class="record">Record</button>
+                            <button onclick="stopRecording()" class="stop">Stop recording</button>
+                            <button onclick="playMusic('page6')" class="play">Replay</button>
+
+                        </div>
+                    </div>
+                    <div class="bb-item page7">
+                        <div class="bb-custom-firstpage">
+                            <img src="img/7.jpg" width="200%"/>
+                            <p>Since that day Avila became a beekeeper, she takes care of the bees and the bees take care of her.</p>
+                        </div>
+                        <div class="bb-custom-side">
+                            
+                            <button onclick="startRecording('page7')" class="record">Record</button>
+                            <button onclick="stopRecording()" class="stop">Stop recording</button>
+                            <button onclick="playMusic('page7')" class="play">Replay</button>
 
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
 
         </div>
@@ -127,8 +156,10 @@
                 shadowFlip : 0.4,
                 onEndFlip: function(old,page,isLimit){ 
                     console.log("page"+page);
-                    playMusic("page"+(page+1));
+                    stopMusic("page"+old);
+                    playMusic("page"+page);
                     //end of the page flip.
+
                     return false;
                 }
             } );

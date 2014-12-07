@@ -1,5 +1,6 @@
 /* General Demo Style */
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+/*@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);*/
+@import url(http://fonts.googleapis.com/css?family=Rokkitt);
 
 @font-face {
 	font-family: 'codropsicons';
@@ -8,6 +9,13 @@
 		url('../fonts/codropsicons/codropsicons.woff') format('woff'),
 		url('../fonts/codropsicons/codropsicons.ttf') format('truetype'),
 		url('../fonts/codropsicons/codropsicons.svg#codropsicons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Rokkitt';
+	src:url('../fonts/Rokkitt.otf') format('embedded-opentype');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -269,6 +277,9 @@ a img {
 	background: #fffbd6;
 }
 
+.recording{
+	background-color: red;
+}
 
 @media screen and (max-width: 46.0625em) {
 	.column {
