@@ -27,7 +27,9 @@
         <link rel="stylesheet" type="text/css" href="css/bookblock.css" />
         <link rel="stylesheet" type="text/css" href="css/default.css" />
         <link rel="stylesheet" type="text/css" href="css/demo4.css" />
+        <link rel="stylesheet" type="text/css" href="css/animations.css">
         <title>Hello World</title>
+
     </head>
     <body class="portrait">
         <div class="container">
@@ -40,9 +42,13 @@
                             <img src="img/0.jpg"/>
                         </div>
                         <div class="bb-custom-side">
+                            <div class="slideLeft">
+                                 <img src="img/finger.png"><br>
+                                 <span>swipe left</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="bb-item page1">
+                    <div class="bb-item page1" id="beginning">
                         <div class="bb-custom-firstpage">
                             <img src="img/1.jpg"/>
                             <p>There once was a girl named Avila. She loved to eat fruit, especially berries.<br/><br/>
@@ -131,6 +137,7 @@
                             <button onclick="startRecording('page7')" class="record">Record</button>
                             <button onclick="stopRecording()" class="stop">Stop recording</button>
                             <button onclick="playMusic('page7')" class="play">Replay</button>
+                            <a href="" class="back">Back to start</a>
 
                         </div>
                     </div>
@@ -150,8 +157,9 @@
         <script type="text/javascript" src="js/record.js"></script>
         <script>
         // add swipe events
+
             $( '#bb-bookblock' ).bookblock( {
-                speed : 1000,
+                speed : 500,
                 shadowSides : 0.8,
                 shadowFlip : 0.4,
                 onEndFlip: function(old,page,isLimit){ 

@@ -103,7 +103,7 @@ function playMusic(currentRecording) {
     //we want to know if it is running
     //current position will let us know if its being played 
     //Because if its running is more than 0 and less than get Duration
-    mediaRecFile = currentRecording + ".wav";
+    mediaRecFile = "/" + currentRecording + ".wav";
     if(my_player){
         my_player.getCurrentPosition(function(position){
             if( position > 0  && position < my_player.getDuration()){
@@ -133,4 +133,5 @@ function stopMusic(currentRecording) {
         my_player.stop();
     }
 }
+
 

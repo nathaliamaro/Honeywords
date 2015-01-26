@@ -238,13 +238,32 @@
 }
 
 .page6 p{
-	top: 420px;
-	left: 40px;
+	top: 370px;
+	left: 580px;
 }
 
 .page7 p{
 	top: 200px;
 	left: 40px;
+}
+
+
+.slideLeft img{
+	z-index: 3000000;
+	position: relative;
+	top: 12px;
+}
+.slideLeft span{
+	margin-left: 40px;
+}
+a {
+	color: #555;
+	text-decoration: none;
+	outline: none;
+	z-index: 10000000;
+	margin-top:740px;
+	margin-left: 110px;
+	position: absolute;
 }
 
 button{

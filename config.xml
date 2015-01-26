@@ -3,8 +3,8 @@
 <preference name="orientation" value="landscape" />
 <platform name="ios">
     <!-- images are determined by width and height. The following are supported -->
-    <splash src="www/img/bkg.jpg" width="1024" height="768"/><!-- ipad -->
-    <splash src="www/img/bkg.jpg" width="2048" height="1536"/><!-- ipad@2x -->
+    <splash src="www/img/bkg.png" width="1024" height="768"/><!-- ipad -->
+    <splash src="www/img/bkg.png" width="2048" height="1536"/><!-- ipad@2x -->
     <icon src="www/img/icon.png" width="76" height="76"/>
     <icon src="www/img/icon@2x.png" width="152" height="152" />
 </platform>
