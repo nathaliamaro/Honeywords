@@ -7,6 +7,11 @@ var checkFileOnly = false;
 var mediaFileExist = false;
 var currentPage = "page1";
 
+// for recording animation
+var timer;
+var timerCurrent;
+var timerFinish;
+var timerSeconds;
 
 function drawTimer(percent, seconds){
     $('div.timer').html('<div class="percent"></div><div id="slice"'+(percent > 50?' class="gt50"':'')+'><div class="pie"></div>'+(percent > 50?'<div class="pie fill"></div>':'')+'</div>');
