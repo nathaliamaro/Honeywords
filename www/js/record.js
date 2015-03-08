@@ -8,6 +8,30 @@ var mediaFileExist = false;
 var currentPage = "page1";
 
 
+function drawTimer(percent, seconds){
+    $('div.timer').html('<div class="percent"></div><div id="slice"'+(percent > 50?' class="gt50"':'')+'><div class="pie"></div>'+(percent > 50?'<div class="pie fill"></div>':'')+'</div>');
+
+    var deg = 360/100*percent;
+
+    $('#slice .pie').css({
+        '-webkit-transform':'rotate('+deg+'deg)',
+        'transform':'rotate('+deg+'deg)'
+    });
+
+     $('.percent').html(Math.round(seconds));
+}
+
+function stopWatch(){
+    var seconds = (timerFinish-(new Date().getTime()))/1000;
+    if(seconds <= 0){
+        drawTimer(100, 0);
+        clearInterval(timer);
+    }else{
+        var percent = 100-((seconds/timerSeconds)*100);
+        drawTimer(percent, seconds);
+    }
+}
+
 function stopRecording() {
     my_recorder.stopRecord(); // the file should be moved to "/sdcard/"+mediaRecFile
     // $('.'+currentPage+' .record').toggleClass('recording');
@@ -85,6 +109,12 @@ function startRecording(page) {
     if (my_recorder){
         my_recorder.release();
     }
+
+    // start the countdown
+    timerSeconds = 25;
+    timerCurrent = 0;
+    timerFinish = new Date().getTime()+(timerSeconds*1000);
+    timer = setInterval('stopWatch()',50);
 
     //first create the file
     checkFileOnly = false;
