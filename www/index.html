@@ -24,12 +24,15 @@
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />
-<!--         <link rel="stylesheet" type="text/css" href="css/bookblock.css" />
- -->        <link rel="stylesheet" type="text/css" href="css/default.css" />
-        <link rel="stylesheet" type="text/css" href="css/demo4.css" />
+        <link rel="stylesheet" type="text/css" href="css/clock.css" />
         <link rel="stylesheet" type="text/css" href="css/animations.css">
         <title>Hello World</title>
         <style type="text/css">
+            body{
+                margin: 0px;
+                padding: 0px;
+            }
+
             #magazine{
                 width: 100%;
                 height: 100vh;
@@ -44,7 +47,9 @@
         <div class="container">
             
 <div id="magazine">
-    <div><span class="text beginnig">Page 1</span></div>
+
+    <div><span class="text">Page 1</span> <div class="timer"></div></div>
+
     <div><span class="text">Page 2</span></div>
     <div><span class="text">Page 3</span></div>
     <div><span class="text">Page 4</span></div>
@@ -60,8 +65,8 @@
         <script type="text/javascript" src="js/record.js"></script>
         <script>
         // add swipe events
-        $('#magazine').turn({gradients: true, acceleration: true, default:"double"});
-            
+
+        $('#magazine').turn({gradients: true, acceleration: true, display: 'single'});
         </script>
     </body>
 </html>
