@@ -15,6 +15,8 @@ body{
 .page{
 	padding-top: 20px;
 	position: relative;
+	background-size: cover;
+
 }
 
 .story {
@@ -53,7 +55,29 @@ body{
 
 .page-0 {
 	background-image: url('../img/0.jpg');
-	background-size: cover;
+}
+
+.page-1{
+	background-image: url('../img/1.jpg');
+}
+.page-2{
+	background-image: url('../img/2.jpg');
+}
+.page-3{
+	background-image: url('../img/3.jpg');
+	
+}
+.page-4{
+	background-image: url('../img/4.jpg');
+}
+.page-5{
+	background-image: url('../img/5.jpg');
+}
+.page-6{
+	background-image: url('../img/6.jpg');
+}
+.page-7{
+	background-image: url('../img/7.jpg');
 }
 
 .page img{
