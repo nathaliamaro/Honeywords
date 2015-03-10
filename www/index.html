@@ -26,6 +26,7 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/clock.css" />
         <link rel="stylesheet" type="text/css" href="css/animations.css">
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
         <title>Hello World</title>
         <style type="text/css">
             body{
@@ -47,21 +48,28 @@
         <div class="container">
             
 <div id="magazine">
-
-    <div><span class="text">Page 1</span> <div class="timer"></div>
-        <div class="bb-item page0">
-            <div class="bb-custom-firstpage">
-                <img src="img/0.jpg"/>
-            </div>
-            <div class="bb-custom-side">
-                <div class="slideLeft">
-                     <img src="img/finger.png"><br>
-                     <span>swipe left</span>
-                </div>
-            </div>
+    <div class="page-1 page">
+        <span class="text">Page 1</span> 
+        <div class="story">
+            <ul class="controls">
+                <li>
+                    <a href="#"><i class="fa fa-play"></i></a>
+                    <br/>play
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-pause"></i></a>
+                    <br/>pause
+                </li>
+                <li>
+                    <div class="record_button">
+                        <a href="#"><i class="fa fa-circle"></i></a>
+                        <br/>record
+                        <div class="timer"></div>
+                    </div>
+                </li>
+            </ul>
         </div>
-    </div>
-
+    </div> <!-- end of .page-1.page -->
 
     <div><span class="text">Page 2</span></div>
 
