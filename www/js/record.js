@@ -31,6 +31,7 @@ function stopWatch(){
     if(seconds <= 0){
         drawTimer(100, 0);
         clearInterval(timer);
+        stopRecording();
     }else{
         var percent = 100-((seconds/timerSeconds)*100);
         drawTimer(percent, seconds);
@@ -40,8 +41,9 @@ function stopWatch(){
 function stopRecording() {
     my_recorder.stopRecord(); // the file should be moved to "/sdcard/"+mediaRecFile
     // $('.'+currentPage+' .record').toggleClass('recording');
-    $('.'+currentPage+' .record').show();
-    $('.'+currentPage+' .stop').hide().toggleClass('recording');
+    $('#'+currentPage+' .record-timer').slideUp();
+    $('#'+currentPage+' .record-link').slideDown();
+    // $('.'+currentPage+' .stop').hide().toggleClass('recording');
 
     clearProgressTimmer();
     console.log("***test: recording stopped***");
@@ -170,3 +172,11 @@ function stopMusic(currentRecording) {
 }
 
 
+$(document).ready(function(){
+    $('.record_button .record-link').click(function(e){
+        currentPage = $(this).parents('.page').attr('id');
+        $(this).slideUp();
+        $(this).siblings('.record-timer').slideDown();
+        startRecording(currentPage);
+    });
+});

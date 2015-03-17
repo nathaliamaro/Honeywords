@@ -66,6 +66,15 @@ body{
 	border-left: 0px;
 }
 
+.story .controls li a{
+	text-decoration: none;
+}
+
+.record-timer{
+	height: 55px;
+	margin-top: -20px;
+}
+
 .clear{
 	clear:both;
 }
