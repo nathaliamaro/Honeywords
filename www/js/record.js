@@ -14,16 +14,16 @@ var timerFinish;
 var timerSeconds;
 
 function drawTimer(percent, seconds){
-    $('div.timer').html('<div class="percent"></div><div id="slice"'+(percent > 50?' class="gt50"':'')+'><div class="pie"></div>'+(percent > 50?'<div class="pie fill"></div>':'')+'</div>');
+    $('#'+currentPage+' div.timer').html('<div class="percent"></div><div id="slice"'+(percent > 50?' class="gt50"':'')+'><div class="pie"></div>'+(percent > 50?'<div class="pie fill"></div>':'')+'</div>');
 
     var deg = 360/100*percent;
 
-    $('#slice .pie').css({
+    $('#'+currentPage+' #slice .pie').css({
         '-webkit-transform':'rotate('+deg+'deg)',
         'transform':'rotate('+deg+'deg)'
     });
 
-     $('.percent').html(Math.round(seconds));
+     $('#'+currentPage+' .percent').html(Math.round(seconds));
 }
 
 function stopWatch(){
@@ -175,6 +175,7 @@ function stopMusic(currentRecording) {
 $(document).ready(function(){
     $('.record_button .record-link').click(function(e){
         currentPage = $(this).parents('.page').attr('id');
+        alert(currentPage);
         $(this).slideUp();
         $(this).siblings('.record-timer').slideDown();
         startRecording(currentPage);
