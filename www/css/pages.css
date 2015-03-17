@@ -1,0 +1,10 @@
+
+
+.story .page-1{
+	border: 1px solid black;
+	width: 375px;
+	position: absolute;
+	right: 60%;
+	top: 58%;
+	font-size: 1.3em;
+}
