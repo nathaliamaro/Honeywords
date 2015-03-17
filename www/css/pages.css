@@ -1,0 +1,43 @@
+
+
+.page-1 .story {
+	position: absolute;
+	right: 60%;
+	top: 58%;
+}
+
+.page-2 .story {
+	position: absolute;
+	right: 60%;
+	top: 58%;
+}
+
+.page-3 .story {
+	position: absolute;
+	top: 62%;
+}
+
+
+.page-4 .story {
+	position: absolute;
+	right: 60%;
+	top: 64%;
+}
+
+
+.page-5 .story {
+	position: absolute;
+	right: 60%;
+	top: 58%;
+}
+
+
+.page-6 .story {
+	position: absolute;
+	top: 62%;
+}
+
+.page-7 .story{
+	right: 60%;
+	top: 30%;
+}
