@@ -1,3 +1,12 @@
+@import url(http://fonts.googleapis.com/css?family=Rokkitt);
+
+@font-face {
+	font-family: 'Rokkitt';
+	src:url('../fonts/Rokkitt.otf') format('embedded-opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+
 body{
     margin: 0px;
     padding: 0px;
@@ -26,6 +35,14 @@ body{
 	top: 40%;
 }
 
+.story .text{
+	font-family: 'Rokkitt', sans-serif;
+}
+
+.story .text p{
+	margin: 10px 15px;
+}
+
 .story .controls{
 	border-top: 1px solid black;
 	padding: 0px;
@@ -33,11 +50,12 @@ body{
 
 .story .controls, .story .controls li{
 	list-style-type: none;
+	font-family: 'Rokkitt', sans-serif;
 }
 
 .story .controls li {
 	border-left: 1px solid black;
-	height: 20px;
+	height: 45px;
 	float: left;
 	width: 124px !important;
 	text-align: center;
@@ -64,7 +82,6 @@ body{
 }
 .page-3{
 	background-image: url('../img/3.jpg');
-	
 }
 .page-4{
 	background-image: url('../img/4.jpg');
