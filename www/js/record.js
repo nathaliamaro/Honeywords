@@ -30,7 +30,6 @@ function stopWatch(){
     var seconds = (timerFinish-(new Date().getTime()))/1000;
     if(seconds <= 0){
         drawTimer(100, 0);
-        clearInterval(timer);
         stopRecording();
     }else{
         var percent = 100-((seconds/timerSeconds)*100);
@@ -50,9 +49,9 @@ function stopRecording() {
 }
 
 function clearProgressTimmer() {
-    if (progressTimmer) {
-        clearInterval(progressTimmer);
-        progressTimmer = null;
+    if (timer) {
+        clearInterval(timer);
+        timer = null;
     } 
 }
 
@@ -68,13 +67,11 @@ function recordNow() {
     // reset the recTime every time when recording
     recTime = 0;
 
-    // Stop recording after 10 sec
-    progressTimmer = setInterval(function() {
-        recTime = recTime + 1;
-        if (recTime >= 25)
-            stopRecording();
-        console.log("***test: interval-func()***");
-    }, 1000);
+    // start the countdown to stop
+    timerSeconds = 25;
+    timerCurrent = 0;
+    timerFinish = new Date().getTime()+(timerSeconds*1000);
+    timer = setInterval('stopWatch()',50);
 }
 
 
@@ -116,12 +113,6 @@ function startRecording(page) {
     if (my_recorder){
         my_recorder.release();
     }
-
-    // start the countdown
-    timerSeconds = 25;
-    timerCurrent = 0;
-    timerFinish = new Date().getTime()+(timerSeconds*1000);
-    timer = setInterval('stopWatch()',50);
 
     //first create the file
     checkFileOnly = false;
@@ -173,11 +164,22 @@ function stopMusic(currentRecording) {
 
 
 $(document).ready(function(){
-    $('.record_button .record-link').click(function(e){
+    $(document).on('click', '.record_button .record-link', function(e){
         currentPage = $(this).parents('.page').attr('id');
-        alert(currentPage);
         $(this).slideUp();
         $(this).siblings('.record-timer').slideDown();
         startRecording(currentPage);
+    });
+
+    $(document).on('click', '.play-button', function(e){
+        currentPage = $(this).parents('.page').attr('id');
+        playMusic(currentPage);
+    });
+
+    $(document).on('click', '.stop-button', function(e){
+        currentPage = $(this).parents('.page').attr('id');
+        console.log("stopping...", currentPage);
+        stopRecording();
+        stopMusic(currentPage);
     });
 });
