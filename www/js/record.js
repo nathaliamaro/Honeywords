@@ -179,7 +179,12 @@ $(document).ready(function(){
     $(document).on('click', '.stop-button', function(e){
         currentPage = $(this).parents('.page').attr('id');
         console.log("stopping...", currentPage);
-        stopRecording();
+        try {
+            stopRecording();
+        }
+        catch(err) {
+            console.log('skipped stop recording');
+        }
         stopMusic(currentPage);
     });
 });

@@ -301,6 +301,30 @@
             display: 'single', 
             elevation: 100
         });
+
+        lastPage = 1;
+        $('#magazine').bind("turned", function(event, page, view) {
+            console.log(view);
+            console.log(event);
+            console.log(page);
+            console.log(lastPage);
+            console.log(page > lastPage);
+            var previousPage, theCurrentPage;
+            // is the page we just turned to bigger than the last page?
+            if (page > lastPage){
+                console.log('in if')
+                previousPage = "page-"+(page-2);
+                theCurrentPage = "page-"+(page-1);
+                lastPage = page-1;
+            } else { // is it equal to or smaller?
+                previousPage = "page-"+(page);
+                theCurrentPage = "page-"+(page-1);
+                lastPage = page-2;
+            }
+            console.log('out cond', theCurrentPage);
+            stopMusic(previousPage);
+            playMusic(theCurrentPage);
+        });
         </script>
     </body>
 </html>
