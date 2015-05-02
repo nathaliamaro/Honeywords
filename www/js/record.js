@@ -6,6 +6,7 @@ var mediaRecFile = "myRecording100.wav";
 var checkFileOnly = false;
 var mediaFileExist = false;
 var currentPage = "page1";
+var playing = false;
 
 // for recording animation
 var timer;
@@ -133,14 +134,17 @@ function playMusic(currentRecording) {
     //Because if its running is more than 0 and less than get Duration
     mediaRecFile = "/" + currentRecording + ".wav";
     if(my_player){
+        console.log('there is indeed a player...');
         my_player.getCurrentPosition(function(position){
-            if( position > 0  && position < my_player.getDuration()){
-                console.log('dont do anything... right?');
+            console.log('the position:', position);
+            if( playing ){
+                my_player.play();
             } else {
                 my_player = new Media(mediaRecFile, onMediaCallSuccess, onMediaCallError);
                 // Play audio
                 if (my_player) {
                     my_player.play();
+                    playing = true;
                 }
            }
         });
@@ -149,8 +153,16 @@ function playMusic(currentRecording) {
         // Play audio
         if (my_player) {
             my_player.play();
+            playing = true;
         }
     }
+}
+
+function pauseMusic(currentRecording){
+    if (my_player) {
+        my_player.pause();
+    }
+
 }
 
 // Stop audio        
@@ -159,6 +171,7 @@ function stopMusic(currentRecording) {
     // stop audio
     if (my_player) {
         my_player.stop();
+        playing = false;
     }
 }
 
@@ -173,7 +186,15 @@ $(document).ready(function(){
 
     $(document).on('click', '.play-button', function(e){
         currentPage = $(this).parents('.page').attr('id');
-        playMusic(currentPage);
+        if($(this).find('.play-text').text() == 'play'){
+            playMusic(currentPage); 
+            $(this).find('.play-text').text('pause');
+            $(this).find('.fa').removeClass('fa-play').addClass('fa-pause');
+        } else {
+            pauseMusic(currentPage); 
+            $(this).find('.play-text').text('play');   
+            $(this).find('.fa').removeClass('fa-pause').addClass('fa-play');
+        }
     });
 
     $(document).on('click', '.stop-button', function(e){
@@ -186,5 +207,8 @@ $(document).ready(function(){
             console.log('skipped stop recording');
         }
         stopMusic(currentPage);
+        // now update play button
+        $(this).parents('.page').find('.play-text').text('play');   
+        $(this).parents('.page').find('.fa').removeClass('fa-pause').addClass('fa-play');
     });
 });
