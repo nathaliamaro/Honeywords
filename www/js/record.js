@@ -82,6 +82,8 @@ function onMediaCallSuccess() {
 // Media() error callback        
 function onMediaCallError(error) {
     console.log("***test: new Media() failed ***");
+    $('.turn-page-wrapper:visible').find('.page .play-text').text('play');
+    $('.turn-page-wrapper:visible').find('.page .fa').removeClass('fa-pause').addClass('fa-play');
 }
 
 function onOK_GetFile(fileEntry) {
