@@ -7,6 +7,7 @@ var checkFileOnly = false;
 var mediaFileExist = false;
 var currentPage = "page1";
 var playing = false;
+var hardstop = false; // because we need a state for the stopCallback function
 
 // for recording animation
 var timer;
@@ -86,6 +87,14 @@ function onMediaCallError(error) {
     $('.turn-page-wrapper:visible').find('.page .fa').removeClass('fa-pause').addClass('fa-play');
 }
 
+function stopCallback(status){
+    console.log('**** WTF ****', status);
+    if(status == 4 && !hardstop){
+        $('.turn-page-wrapper:visible').find('.page .play-text').text('play');
+        $('.turn-page-wrapper:visible').find('.page .fa').removeClass('fa-pause').addClass('fa-play');   
+    }
+}
+
 function onOK_GetFile(fileEntry) {
     console.log("***test: File " + mediaRecFile + " at " + fileEntry.fullPath);
     
@@ -142,20 +151,22 @@ function playMusic(currentRecording) {
             if( playing ){
                 my_player.play();
             } else {
-                my_player = new Media(mediaRecFile, onMediaCallSuccess, onMediaCallError);
+                my_player = new Media(mediaRecFile, onMediaCallSuccess, onMediaCallError, stopCallback);
                 // Play audio
                 if (my_player) {
                     my_player.play();
+                    hardstop = false;
                     playing = true;
                 }
            }
         });
     } else {
-        my_player = new Media(mediaRecFile, onMediaCallSuccess, onMediaCallError);
+        my_player = new Media(mediaRecFile, onMediaCallSuccess, onMediaCallError, stopCallback);
         // Play audio
         if (my_player) {
             my_player.play();
             playing = true;
+            hardstop = false;
         }
     }
 }
@@ -171,6 +182,7 @@ function pauseMusic(currentRecording){
 //
 function stopMusic(currentRecording) {
     // stop audio
+    hardstop = true; // because we need a state for the stopCallback function
     if (my_player) {
         my_player.stop();
         playing = false;
