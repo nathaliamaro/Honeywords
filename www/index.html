@@ -35,14 +35,17 @@
         <div class="container">
             
 <div id="magazine">
-    <div class="page-0 page">
-        <div class="slideLeft">
-             <img src="img/finger.png"><br>
-             <span>swipe left</span>
+    <div class="page-0 page" id="page-0">
+        <div id="overlay">
+            <p>Double tap to <br> flip pages  </p><img src="img/arrow.png">
         </div>
     </div>
   
     <div class="page-1 page" id="page-1">
+        <div id="overlay">
+            <p>To start, tap the <br>record button and <br>record the story</p><img src="img/arrowback.png">
+        </div>
+
         <div class="story">
             <div class="text">
                 <p>
@@ -302,17 +305,26 @@
             elevation: 100
         });
 
+
+        $(document).ready(function() {
+            setTimeout( function(){
+                // the line below is for onboarding testing purposes
+                // window.localStorage.setItem("has-been-opened", false);
+                var hasBeenOpened = window.localStorage.getItem("has-been-opened");
+
+                if(hasBeenOpened != "true"){
+                    $('.page-0 #overlay, .page-1 #overlay').fadeIn(1200);
+                    window.localStorage.setItem("has-been-opened", true);
+                }
+            }, 2000 );
+        });
+
+
         lastPage = 1;
         $('#magazine').bind("turned", function(event, page, view) {
-            console.log(view);
-            console.log(event);
-            console.log(page);
-            console.log(lastPage);
-            console.log(page > lastPage);
             var previousPage, theCurrentPage;
             // is the page we just turned to bigger than the last page?
             if (page > lastPage){
-                console.log('in if')
                 previousPage = "page-"+(page-2);
                 theCurrentPage = "page-"+(page-1);
                 lastPage = page-1;
@@ -321,9 +333,10 @@
                 theCurrentPage = "page-"+(page-1);
                 lastPage = page-2;
             }
+            console.log(previousPage);
+            $('#'+previousPage).find('#overlay').hide();
             $('#'+theCurrentPage).find('.play-text').text('pause');
             $('#'+theCurrentPage).find('.fa').removeClass('fa-play').addClass('fa-pause');
-            console.log('out cond', theCurrentPage);
             stopMusic(previousPage);
             playMusic(theCurrentPage);
         });
